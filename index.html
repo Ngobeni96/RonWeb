@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RivRon Engineering</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f8fa;
+      color: #222;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER */
+    header {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-bottom: 3px solid #cc0000;
+    }
+    header img {
+      width: 80px;
+      height: auto;
+      border-radius: 10px;
+      margin-right: 15px;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #cc0000;
+      margin: 0;
+    }
+    header p {
+      margin: 0;
+      font-style: italic;
+      color: #555;
+      font-weight: 500;
+    }
+
+    /* NAV */
+    nav {
+      background: #cc0000;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 15px 10px;
+    }
+    nav a {
+      color: white;
+      font-weight: 600;
+      padding: 10px 25px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    nav a:hover,
+    nav a.active {
+      background: #990000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      position: relative;
+      height: 90vh;
+      background: url('lights9.jpeg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      max-width: 700px;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: #ffdd00;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: #f9f9f9;
+    }
+
+    .hero-content .btn {
+      background: #cc0000;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero-content .btn:hover {
+      background: #fff;
+      color: #cc0000;
+      transform: scale(1.05);
+    }
+
+    /* WELCOME SECTION */
+    .welcome {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .welcome h2 {
+      color: #cc0000;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+    .welcome p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* CALL TO ACTION */
+    .cta {
+      background: #cc0000;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      margin-top: 50px;
+    }
+    .cta h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .cta p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .cta .btn {
+      background: #fff;
+      color: #cc0000;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .cta .btn:hover {
+      background: #ffdd00;
+      color: #111;
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e1e1e;
+      color: #ccc;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 3px solid #cc0000;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: start;
+      max-width: 1100px;
+      margin: auto;
+      gap: 40px;
+    }
+    .footer-section h4 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-section ul li {
+      margin: 6px 0;
+    }
+    .footer-section ul li a {
+      color: #ccc;
+      transition: color 0.3s;
+    }
+    .footer-section ul li a:hover {
+      color: #ffdd00;
+    }
+    .social-icons a {
+      color: #ccc;
+      margin-right: 15px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    .social-icons a:hover {
+      color: #ffdd00;
+      transform: scale(1.2);
+    }
+    footer p {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-content h1 { font-size: 2rem; }
+      .welcome h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="RivRon Engineering Logo" />
+    <div>
+      <h1>RivRon Engineering</h1>
+      <p>Powering Innovation Through Reliable Engineering Solutions</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Welcome to RivRon Engineering</h1>
+      <p>Delivering reliable, safe, and modern electrical solutions for homes and businesses across South Africa.</p>
+      <a href="services.html" class="btn">Explore Our Services</a>
+    </div>
+  </section>
+
+  <!-- WELCOME SECTION -->
+  <section class="welcome">
+    <h2>Engineering You Can Trust</h2>
+    <p>
+      At <strong>RivRon Engineering</strong>, we specialize in <strong>electrical maintenance, installations, solar systems, CCTV setup</strong> and more.
+      Our skilled team ensures every project meets the highest safety and quality standards.
+    </p>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta">
+    <h3>Need Expert Electrical Work?</h3>
+    <p>Let our team power your home or business with dependable solutions. Get in touch today!</p>
+    <a href="contact.html" class="btn">Request a Quote</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i> +27 73 4990 121</li>
+          <li><i class="fa-solid fa-envelope"></i> info@rivron.co.za</li>
+          <li><i class="fa-solid fa-location-dot"></i> Giyani, Limpopo, South Africa</li>
+        </ul>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <p>&copy; 2025 RivRon Engineering | Designed with pride by Nsovo Ngobeni</p>
+  </footer>
+
+</body>
+</html>
